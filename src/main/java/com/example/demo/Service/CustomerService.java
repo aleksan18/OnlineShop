@@ -15,4 +15,19 @@ public class CustomerService {
     {
         return customerRepository.fetchAllCustomers();
     }
+    public void deleteCustomer(int id){
+        customerRepository.deleteCustomer(id);
+    }
+    public void updateCustomer(Customer customer,int id){
+        customerRepository.updateCustomer(customer,id);
+    }
+    public List<Customer>findCustomerByEmail(String email){
+      return customerRepository.findCustomerByEmail(email) ;
+    }
+    public List<Customer>findCustomerById(int id){
+        return customerRepository.findCustomerByID(id);
+    }
+    public void addCustomer(Customer customer){
+        customerRepository.addCustomer(customer);
+    }
 }
