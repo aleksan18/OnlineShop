@@ -28,7 +28,7 @@ public class CustomerRepository{
     }
     public void updateCustomer(Customer customer,int id){
         String query="UPDATE customer SET first_name=?,second_name=?,age=?,email=?,phone=?,zip=?,country=?,address=? WHERE Id=?;";
-        jdbcTemplate.update(query,id);
+        jdbcTemplate.update(query,customer.getFirst_name(),customer.getSecond_name(),customer.getAge(), customer.getEmail(),customer.getPhone(),customer.getZip(),customer.getCountry(),customer.getAddress(),id);
     }
     public void addCustomer(Customer customer){
         String query="INSERT INTO customers VALUES(DEFAULT,?,?,?,?,?,?,?,?;)";
