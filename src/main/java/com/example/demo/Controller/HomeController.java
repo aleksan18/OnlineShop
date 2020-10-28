@@ -12,11 +12,11 @@ public class HomeController {
 
     @Autowired
     CustomerService customerService;
-    @GetMapping("/")
+    @GetMapping({"","/","/index","/index.html"})
     public String index()
     {
         customerService.fetchAllCustomers();
-        return "index";
+        return "index.html";
     }
 
 }
