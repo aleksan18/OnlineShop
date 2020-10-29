@@ -1,7 +1,32 @@
 package com.example.demo.Service;
 
+import com.example.demo.Model.Items;
+import com.example.demo.Repository.ItemsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ItemsService {
+    @Autowired
+    ItemsRepository itemsRepository;
+
+    public List<Items> fetchAllItems() {
+        return itemsRepository.fetchAllItems();
+    }
+
+    public List<Items> findItemsByID(int id) {
+        return itemsRepository.findItemsByID(id);
+    }
+
+    public void updateItems(Items items, int id) {
+        itemsRepository.updateItems(items,id);
+    }
+    public void deleteItems(int id){
+        itemsRepository.deleteItem(id);
+    }
+    public void addItems(Items items){
+        itemsRepository.addItem(items);
+    }
 }
