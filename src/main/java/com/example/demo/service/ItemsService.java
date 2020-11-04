@@ -1,4 +1,4 @@
-package com.example.demo.Service;
+package com.example.demo.service;
 
 import com.example.demo.model.Items;
 import com.example.demo.repository.ItemsRepository;
@@ -16,7 +16,7 @@ public class ItemsService {
         return itemsRepository.fetchAllItems();
     }
 
-    public List<Items> findItemsByID(int id) {
+    public Items findItemsByID(int id) {
         return itemsRepository.findItemsByID(id);
     }
 

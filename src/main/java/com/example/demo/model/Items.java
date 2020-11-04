@@ -20,7 +20,7 @@ public class Items {
     public Items() {
     }
 
-    public Items(int id, int sales_id, String size, double price, String name, int stock, String type, int ratings, int quantity) {
+    public Items(int id,int sales_id, String size, double price, String name, int stock, String type, int ratings, int quantity) {
         Id = id;
         this.sales_id = sales_id;
         this.size = size;
