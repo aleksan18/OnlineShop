@@ -1,4 +1,4 @@
-package com.example.demo.Model;
+package com.example.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,8 +20,8 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String first_name, String second_name, int age, String email, String phone, String zip, String country, String address) {
-        Id = id;
+    public Customer( String first_name, String second_name, int age, String email, String phone, String zip, String country, String address) {
+       // Id = id;
         this.first_name = first_name;
         this.second_name = second_name;
         this.age = age;

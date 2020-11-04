@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
-import com.example.demo.Model.Customer;
-import com.example.demo.Repository.CustomerRepository;
+import com.example.demo.model.Customer;
+import com.example.demo.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +21,10 @@ public class CustomerService {
     public void updateCustomer(Customer customer,int id){
         customerRepository.updateCustomer(customer,id);
     }
-    public List<Customer>findCustomerByEmail(String email){
+    public Customer findCustomerByEmail(String email){
       return customerRepository.findCustomerByEmail(email) ;
     }
-    public List<Customer>findCustomerById(int id){
+    public Customer findCustomerById(int id){
         return customerRepository.findCustomerByID(id);
     }
     public void addCustomer(Customer customer){

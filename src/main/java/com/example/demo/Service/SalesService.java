@@ -1,8 +1,8 @@
 package com.example.demo.Service;
 
-import com.example.demo.Model.Customer;
-import com.example.demo.Model.Sales;
-import com.example.demo.Repository.SalesRepository;
+import com.example.demo.model.Customer;
+import com.example.demo.model.Sales;
+import com.example.demo.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
