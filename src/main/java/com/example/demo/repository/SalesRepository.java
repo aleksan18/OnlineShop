@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import com.example.demo.model.Sales;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -20,27 +21,33 @@ public class SalesRepository {
         System.out.println(jdbcTemplate.query(query,rm));
         return jdbcTemplate.query(query, rm);
     }
-    public List<Sales> findSalesById(int id){
-        String query="SELECt * FROM sales WHERE Id=?;";
-        RowMapper<Sales> rm=new BeanPropertyRowMapper<>(Sales.class);
-        return jdbcTemplate.query(query,rm,id);
+    public Sales findSalesById(int id){
+        try {
+            String query = "SELECt * FROM sales WHERE id=?;";
+            RowMapper<Sales> rm = new BeanPropertyRowMapper<>(Sales.class);
+            return jdbcTemplate.queryForObject(query, rm, id);
+        }
+        catch (EmptyResultDataAccessException e)
+        {
+            return null;
+        }
     }
-    public void updateSales(Sales sales,int id){
-        String query="UPDATE sales SET completed=?,customers_Id=?,final_price=? WHERE Id=?;";
-        jdbcTemplate.update(query,sales.isCompleted(),sales.getCustomers_id(),sales.getFinal_price(),id);
+    public boolean updateSales(Sales sales,int id){
+        String query="UPDATE sales SET completed=?,customers_Id=?,final_price=? WHERE id=?;";
+       return jdbcTemplate.update(query,sales.isCompleted(),sales.getCustomers_id(),sales.getFinal_price(),id)>0;
     }
-    public void addSales(Sales sales){
-        String query="INSERT INTO sales VALUES(DEFAULT,?,?,?,?;)";
-        jdbcTemplate.update(query,sales.isCompleted(),sales.getCustomers_id(),sales.getFinal_price());
+    public boolean addSales(Sales sales){
+        String query="INSERT INTO sales VALUES(DEFAULT,?,?,?)";
+       return jdbcTemplate.update(query,sales.isCompleted(),sales.getCustomers_id(),sales.getFinal_price())>0;
     }
-    public void deleteSales(int id)
+    public boolean deleteSales(int id)
     {
-        String query = "DELETE FROM sales WHERE Id=?;";
-        jdbcTemplate.update(query,id);
+        String query = "DELETE FROM sales WHERE id=?;";
+       return jdbcTemplate.update(query,id)>0;
     }
     public List<Sales> findSalesByCustomerId(int customer_id)
     {
-        String query="SELECT * FROM sales WHERE customer_Id=?";
+        String query="SELECT * FROM sales WHERE customers_id=?";
         RowMapper<Sales>rm=new BeanPropertyRowMapper<>(Sales.class);
         return jdbcTemplate.query(query,rm,customer_id);
     }

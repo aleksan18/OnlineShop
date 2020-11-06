@@ -15,7 +15,7 @@ public class SalesService {
     public List<Sales> fetchAllSales(){
         return salesRepository.fetchAllSales();
     }
-    public List<Sales> findSalesById(int id){
+    public Sales findSalesById(int id){
         return salesRepository.findSalesById(id);
     }
     public void deleteSales(int id){

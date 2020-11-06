@@ -19,11 +19,8 @@ class ItemsRepositoryTest {
     @Autowired
     ItemsRepository itemsRepository;
 
-    Items items= new Items(1,1,"size",500.99,"Test item",300,"test_type",3,5);
-    @BeforeEach
-    void setUp() {
-        itemsRepository.addItem(items);
-    }
+    Items items= new Items(4,1,"size",500.99,"Test item",300,"test_type",3,5);
+
 
     @Test
     void fetchAllItems() {
@@ -32,12 +29,13 @@ class ItemsRepositoryTest {
 
     @Test
     void findItemsByID() {
-        assertThat(itemsRepository.findItemsByID(4)).isNotNull();
+        assertThat(itemsRepository.findItemsByID(items.getId())).isNotNull();
     }
 
     @Test
     void updateItems() {
-        
+        items.setName("othertestname");
+        assertThat(itemsRepository.updateItems(items,items.getId()));
     }
 
 
