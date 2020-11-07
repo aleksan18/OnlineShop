@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-
+/*
     @Autowired
     CustomerService customerService;
     @GetMapping({"","/","/index","/index.html"})
     public String index()
     {
         customerService.fetchAllCustomers();
-        return "index.html";
+        return "/index.html";
     }
-
+*/
 }
