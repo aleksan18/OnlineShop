@@ -27,16 +27,19 @@ public class SalesController {
         return salesService.findSalesById(id);
     }
     @DeleteMapping(path="{id}")
-    public void deleteSales(@PathVariable("id") int id){
+    public String deleteSales(@PathVariable("id") int id){
         salesService.deleteSales(id);
+        return "redirect:/sales";
     }
     @PostMapping
-    public void addSales(@RequestBody Sales sales){
+    public String addSales(@ModelAttribute Sales sales){
         salesService.addSales(sales);
+        return "redirect:/sales";
     }
     @PutMapping(path = "{id}")
-    public void updateSales(@RequestBody Sales sales,@PathVariable("id") int id) {
+    public String updateSales(@RequestBody Sales sales,@PathVariable("id") int id) {
         salesService.updateSales(sales,id);
+        return "redirect:/movies/getOne/";
     }
     public List<Sales> findSalesByCustomerId(Customer customer){
         return salesService.findSalesByCustomerId(customer.getId());

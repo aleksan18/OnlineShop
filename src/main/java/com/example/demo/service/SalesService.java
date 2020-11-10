@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.model.Customer;
 import com.example.demo.model.Sales;
+import com.example.demo.repository.CustomerRepository;
 import com.example.demo.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

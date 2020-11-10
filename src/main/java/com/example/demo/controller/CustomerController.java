@@ -21,12 +21,14 @@ public class CustomerController {
         return "/index";
     }
     @DeleteMapping(path="{id}")
-    public void deleteCustomer(@PathVariable("id") int id){
+    public String deleteCustomer(@PathVariable("id") int id){
         customerService.deleteCustomer(id);
+        return "redirect:/customers";
     }
     @PutMapping(path = "{id}")
-    public void updateCustomer(@RequestBody Customer customer,@PathVariable("id") int id){
+    public String updateCustomer(@RequestBody Customer customer,@PathVariable("id") int id){
         customerService.updateCustomer(customer,id);
+        return "redirect:/movies/getOne/";
     }
     @GetMapping
     public Customer findCustomerByEmail(@PathVariable("email") String email){
@@ -37,7 +39,8 @@ public class CustomerController {
         return customerService.findCustomerById(id);
     }
     @PostMapping
-    public void addCustomer(@RequestBody Customer customer){
+    public String addCustomer(@RequestBody Customer customer){
         customerService.addCustomer(customer);
+        return "redirect:/customer";
     }
 }
