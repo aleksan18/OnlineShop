@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.List;
 import java.util.Objects;
 
 @Entity

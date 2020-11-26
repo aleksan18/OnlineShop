@@ -12,22 +12,26 @@ public class Customer {
     private String second_name;
     private int age;
     private String email;
+    private String password;
     private String phone;
     private String zip;
+    private String city;
     private String country;
     private String address;
 
     public Customer() {
     }
 
-    public Customer( String first_name, String second_name, int age, String email, String phone, String zip, String country, String address) {
-       // Id = id;
+    public Customer(int id, String first_name, String second_name, int age, String email, String password, String phone, String zip, String city, String country, String address) {
+        Id = id;
         this.first_name = first_name;
         this.second_name = second_name;
         this.age = age;
         this.email = email;
+        this.password = password;
         this.phone = phone;
         this.zip = zip;
+        this.city = city;
         this.country = country;
         this.address = address;
     }
@@ -96,12 +100,45 @@ public class Customer {
         this.country = country;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "Id=" + Id +
+                ", first_name='" + first_name + '\'' +
+                ", second_name='" + second_name + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", zip='" + zip + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 
     @Override
@@ -114,29 +151,16 @@ public class Customer {
                 Objects.equals(first_name, customer.first_name) &&
                 Objects.equals(second_name, customer.second_name) &&
                 Objects.equals(email, customer.email) &&
+                Objects.equals(password, customer.password) &&
                 Objects.equals(phone, customer.phone) &&
                 Objects.equals(zip, customer.zip) &&
+                Objects.equals(city, customer.city) &&
                 Objects.equals(country, customer.country) &&
                 Objects.equals(address, customer.address);
     }
 
     @Override
-    public String toString() {
-        return "Customer{" +
-                "Id=" + Id +
-                ", first_name='" + first_name + '\'' +
-                ", second_name='" + second_name + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", zip='" + zip + '\'' +
-                ", country='" + country + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(Id, first_name, second_name, age, email, phone, zip, country, address);
+        return Objects.hash(Id, first_name, second_name, age, email, password, phone, zip, city, country, address);
     }
 }

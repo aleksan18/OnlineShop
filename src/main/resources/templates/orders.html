@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="order_info:${orders_info}">
+    <p th:text="${order_info.name}"></p>
+    <p th:text="${order_info.quantity}"></p>
+    <p th:text="${order_info.size}"></p>
+</div>
+<div th:each="order:${orders}">
+<p></p>
+<p th:text="${order.final_price}"></p>
+</div>
+</body>
+</html>

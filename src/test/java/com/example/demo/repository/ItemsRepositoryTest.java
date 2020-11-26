@@ -19,7 +19,7 @@ class ItemsRepositoryTest {
     @Autowired
     ItemsRepository itemsRepository;
 
-    Items items= new Items(4,1,"size",500.99,"Test item",300,"test_type",3,5);
+    Items items= new Items(4,1,"size",500.99,"Test item",300,"test_type",3,5,"");
 
 
     @Test
@@ -36,6 +36,10 @@ class ItemsRepositoryTest {
     void updateItems() {
         items.setName("othertestname");
         assertThat(itemsRepository.updateItems(items,items.getId()));
+    }
+    @Test
+    void findItemsBySalesID(){
+        itemsRepository.findItemsBySalesID(1);
     }
 
 

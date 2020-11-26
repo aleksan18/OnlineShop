@@ -19,7 +19,7 @@ class CustomerRepositoryTest {
     @Autowired
     CustomerRepository customerRepository;
 
-    Customer customer=new Customer("TEST","TEST2",23,"test@gmail","4593804514","2500","Denmark","test address");
+    Customer customer=new Customer(1,"TEST","TEST2",23,"test@gmail","password","4593804514","2400","Copenhagen","Denmark","test address");
     //since in constructor I do not assign a id I have to get it from the database since when running the tests the id's change
     @BeforeEach
     void setUp() {

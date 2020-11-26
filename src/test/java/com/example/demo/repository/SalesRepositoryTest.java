@@ -2,6 +2,7 @@ package com.example.demo.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.example.demo.model.Items;
 import com.example.demo.model.Sales;
 import org.junit.After;
 import org.junit.jupiter.api.AfterEach;
@@ -31,6 +32,8 @@ class SalesRepositoryTest {
 
     @Test
     void findSalesById() {
+        Items items= new Items(1,1,"M",200,"TEst",400,"shirt",2,4,"");
+        salesRepository.addSales(sales,items);
         assertThat(salesRepository.findSalesById(4));
     }
 
@@ -44,4 +47,5 @@ class SalesRepositoryTest {
     void findSalesByCustomerId() {
         assertThat(salesRepository.findSalesByCustomerId(3)).isNotEmpty();
     }
+
 }

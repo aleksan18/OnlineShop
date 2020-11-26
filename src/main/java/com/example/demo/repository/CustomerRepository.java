@@ -17,14 +17,14 @@ public class CustomerRepository{
     JdbcTemplate jdbcTemplate;
     public List<Customer> fetchAllCustomers()
     {
-        String query="SELECT * FROM customers";
+        String query="SELECT customers.*,zips.city,zips.country FROM customers JOIN zips ON customers.zip=zips.id";
         RowMapper<Customer> rm = new BeanPropertyRowMapper<>(Customer.class);
         System.out.println(jdbcTemplate.query(query,rm));
         return jdbcTemplate.query(query, rm);
     }
     public Customer findCustomerByID(int id) {
         try {
-            String query = "SELECt * FROM customers WHERE id=?;";
+            String query = "SELECT customers.*,zips.city,zips.country FROM customers JOIN zips ON customers.zips=zips.id WHERE customers.id=?;";
             RowMapper<Customer> rm = new BeanPropertyRowMapper<>(Customer.class);
             return jdbcTemplate.queryForObject(query, rm, id);
         }
@@ -34,12 +34,12 @@ public class CustomerRepository{
     }
     }
     public boolean updateCustomer(Customer customer,int id){
-        String query="UPDATE customers SET first_name=?,second_name=?,age=?,email=?,phone=?,zip=?,country=?,address=? WHERE id=?;";
-    return  jdbcTemplate.update(query,customer.getFirst_name(),customer.getSecond_name(),customer.getAge(), customer.getEmail(),customer.getPhone(),customer.getZip(),customer.getCountry(),customer.getAddress(),id)>0;
+        String query="UPDATE customers SET first_name=?,second_name=?,age=?,email=?,password,phone=?,zip=?,country=?,address=? WHERE id=?;";
+    return  jdbcTemplate.update(query,customer.getFirst_name(),customer.getSecond_name(),customer.getAge(), customer.getEmail(),customer.getPassword(),customer.getPhone(),customer.getZip(),customer.getCountry(),customer.getAddress(),id)>0;
     }
     public boolean addCustomer(Customer customer){
         String query="INSERT INTO customers VALUES(DEFAULT,?,?,?,?,?,?,?,?)";
-       return jdbcTemplate.update(query,customer.getFirst_name(),customer.getSecond_name(),customer.getAge(), customer.getEmail(),customer.getPhone(),customer.getZip(),customer.getCountry(),customer.getAddress())>0;
+       return jdbcTemplate.update(query,customer.getFirst_name(),customer.getSecond_name(),customer.getAge(), customer.getEmail(),customer.getPassword(),customer.getPhone(),customer.getZip(),customer.getAddress())>0;
     }
     public boolean deleteCustomer(int id)
     {

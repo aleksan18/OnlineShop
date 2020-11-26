@@ -16,11 +16,12 @@ public class Items {
     private String type;
     private int ratings;
     private int quantity;
+    private String image;
 
     public Items() {
     }
 
-    public Items(int id,int sales_id, String size, double price, String name, int stock, String type, int ratings, int quantity) {
+    public Items(int id,int sales_id, String size, double price, String name, int stock, String type, int ratings, int quantity,String image) {
         Id = id;
         this.sales_id = sales_id;
         this.size = size;
@@ -30,6 +31,7 @@ public class Items {
         this.type = type;
         this.ratings = ratings;
         this.quantity = quantity;
+        this.image=image;
     }
 
     public int getSales_id() {
@@ -56,24 +58,12 @@ public class Items {
         this.size = size;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Items items = (Items) o;
-        return Id == items.Id &&
-                Double.compare(items.price, price) == 0 &&
-                stock == items.stock &&
-                ratings == items.ratings &&
-                quantity == items.quantity &&
-                Objects.equals(size, items.size) &&
-                Objects.equals(name, items.name) &&
-                Objects.equals(type, items.type);
+    public String getImage() {
+        return image;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(Id, size, price, name, stock, type, ratings, quantity);
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public double getPrice() {
@@ -125,6 +115,28 @@ public class Items {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Items items = (Items) o;
+        return Id == items.Id &&
+                sales_id == items.sales_id &&
+                Double.compare(items.price, price) == 0 &&
+                stock == items.stock &&
+                ratings == items.ratings &&
+                quantity == items.quantity &&
+                Objects.equals(size, items.size) &&
+                Objects.equals(name, items.name) &&
+                Objects.equals(type, items.type) &&
+                Objects.equals(image, items.image);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Id, sales_id, size, price, name, stock, type, ratings, quantity, image);
+    }
+
+    @Override
     public String toString() {
         return "Items{" +
                 "Id=" + Id +
@@ -136,6 +148,7 @@ public class Items {
                 ", type='" + type + '\'' +
                 ", ratings=" + ratings +
                 ", quantity=" + quantity +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

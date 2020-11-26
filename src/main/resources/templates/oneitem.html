@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  action="/oneitem" method="post" >
+    <img  width="10%" height="10%" th:src="@{${oneItem.image}}">
+    <p th:text="${oneItem.stock}"></p>
+    <select name="size">
+        <option th:value="S" th:text="S"></option>
+        <option th:value="M" th:text="M"></option>
+        <option th:value="L" th:text="L"></option>
+        <option th:value="XL" th:text="XL"></option>
+    </select>
+    <input th:value="${oneItem.id} "name="items_id" type="hidden">
+    <input name="quantity">
+    <button type="submit"></button>
+</form>
+
+</body>
+</html>
