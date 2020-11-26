@@ -38,6 +38,11 @@ public class SalesService {
 
        return end_price;
     }
+    public void addSales(Sales sales)
+    {
+        Items items=new Items();
+        salesRepository.addSales(sales,items);
+    }
     public void createSales(List<ShoppingCart>shoppingCartList,Customer customer){
         Items items;
         Sales sales=salesRepository.createSales(customer,endPrice(shoppingCartList));
