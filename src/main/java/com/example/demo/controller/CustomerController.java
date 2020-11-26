@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 public class CustomerController {
     private CustomerService customerService;
-    @GetMapping("/")
+    @GetMapping("/Cusomers")
     public String fetchAllCustomers(Model model)
     {
         List<Customer> customersList = customerService.fetchAllCustomers();
@@ -20,25 +20,25 @@ public class CustomerController {
 
         return "/index";
     }
-    @DeleteMapping(path="{id}")
+    @DeleteMapping("/Customers/{id}")
     public String deleteCustomer(@PathVariable("id") int id){
         customerService.deleteCustomer(id);
         return "redirect:/customers";
     }
-    @PutMapping(path = "{id}")
+    @PutMapping("/Customers/{id}")
     public String updateCustomer(@RequestBody Customer customer,@PathVariable("id") int id){
         customerService.updateCustomer(customer,id);
         return "redirect:/movies/getOne/";
     }
-    @GetMapping
+    @GetMapping("/Customers/{email}")
     public Customer findCustomerByEmail(@PathVariable("email") String email){
         return customerService.findCustomerByEmail(email) ;
     }
-    @GetMapping
+    @GetMapping("/Customers/{id}")
     public Customer findCustomerById(@PathVariable("id") int id){
         return customerService.findCustomerById(id);
     }
-    @PostMapping
+    @PostMapping("/Customers/{id}")
     public String addCustomer(@RequestBody Customer customer){
         customerService.addCustomer(customer);
         return "redirect:/customer";

@@ -32,9 +32,47 @@
             <button class="btn-crud">Delete</button>
         </a>
     </div>
-    <div class="create-form">
-
-    </div>
+    <form action="/createCustomer" method="post">
+        <label>Enter Id: </label>
+        <input type="text" name="id" required pattern="\D*">
+        <br/>
+        <br/>
+        <label>First name:</label>
+        <input type="text" name="first_name" required pattern="\D*">
+        <br/>
+        <br/>
+        <label>Second name: </label>
+        <input type="text" name="second_name" required>
+        <br/>
+        <br/>
+        <label>Enter age: </label>
+        <input type="text" name="age" pattern="\d*">
+        <br/>
+        <br/>
+        <label>Enter email: </label>
+        <input type="text" name="email" required pattern="\D*">
+        <br/>
+        <br/>
+        <label>Enter phone:</label>
+        <input type="text" name="phone" required pattern="\D*">
+        <br/>
+        <br/>
+        <label>Enter zip: </label>
+        <input type="text" name="zip" required>
+        <br/>
+        <br/>
+        <label>Enter country: </label>
+        <input type="text" name="country" pattern="\d*">
+        <br/>
+        <br/>
+        <label>Enter adress: </label>
+        <input type="text" name="adress" pattern="\d*">
+        <br/>
+        <br/>
+        <div style="text-align:center">
+            <input type="submit" value="Add new customers">
+        </div>
+    </form>
 
 </div>
 

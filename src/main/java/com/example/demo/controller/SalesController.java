@@ -15,18 +15,15 @@ public class SalesController {
     @Autowired
     private SalesService salesService;
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String fetchAllSales(Model model){
         List<Sales> salesList = salesService.fetchAllSales();
-        model.addAttribute("items", salesList);
+        model.addAttribute("sales", salesList);
 
         return "/index";
     }
-    @GetMapping
-    public Sales findSalesById(@PathVariable("id") int id){
-        return salesService.findSalesById(id);
-    }
-    @DeleteMapping(path="{id}")
+
+    @DeleteMapping("/Sales/{id}")
     public String deleteSales(@PathVariable("id") int id){
         salesService.deleteSales(id);
         return "redirect:/sales";
@@ -34,14 +31,20 @@ public class SalesController {
     @PostMapping
     public String addSales(@ModelAttribute Sales sales){
         salesService.addSales(sales);
-        return "redirect:/sales";
+        return "redirect:/Sales";
     }
     @PutMapping(path = "{id}")
     public String updateSales(@RequestBody Sales sales,@PathVariable("id") int id) {
         salesService.updateSales(sales,id);
-        return "redirect:/movies/getOne/";
+        return "redirect:/sales/getOne/";
     }
-    public List<Sales> findSalesByCustomerId(Customer customer){
-        return salesService.findSalesByCustomerId(customer.getId());
+    @GetMapping("/Sales/{id}")
+    public Sales findSalesById(@PathVariable("id") int id){
+        return salesService.findSalesById(id);
+    }
+
+    @GetMapping("/Sales/{id}/{customer}")
+    public List<Sales> findSalesByCustomerId(@PathVariable("id") int id ,@RequestBody Customer customer){
+        return salesService.findSalesByCustomerId(customer);
     }
 }

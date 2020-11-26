@@ -20,19 +20,10 @@ public class ItemsService {
     @Autowired
     ItemsRepository itemsRepository;
 
-    public Map<String,Object> fetchAllItems(int page,int size) {
-        Pageable pageable =  PageRequest.of(page,size);
+   public List<Items> fetchAllItems() {
+
         List<Items> itemsList = itemsRepository.fetchAllItems();
-        int start = (int) pageable.getOffset();
-        int end = (int) ((start + pageable.getPageSize()) > itemsList.size() ? itemsList.size()
-                : (start + pageable.getPageSize()));
-        Page<Items> paged = new PageImpl<Items>(itemsList.subList(start, end), pageable, itemsList.size());
-        Map<String, Object> response=new HashMap<>();
-        response.put("items",itemsList);
-        response.put("currentPage",paged.getNumber());
-        response.put("totalItems",itemsList.size());
-        response.put("totalPages",paged.getTotalPages());
-    return response;
+            return itemsList;
     }
     public Page<Items> findPaginated(Pageable pageable) {
         int pageSize = pageable.getPageSize();

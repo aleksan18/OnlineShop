@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class = "container-fluid">
+    <div class ="section">
+        <div class ="logo"><img class="logoimg" src="download.jpg" alt="Girl in a jacket"></div>
+        <div class ="UL-menu">
+            <h1>Shirts for everybody!!!</h1>
+
+        </div>
+    </div>
+    <div class = "crud-bar">
+        <a href="/index">
+            <button class="btn-crud">Main menu</button>
+        </a>
+        <a href="/Create">
+            <button class="btn-crud">Add Tshirt</button>
+        </a>
+        <a href="/Update">
+            <button class="btn-crud">Update</button>
+        </a>
+        <a href="/Delete">
+            <button class="btn-crud">Delete</button>
+        </a>
+    </div>
+
+    <div class ="forms">
+    <form action="/createCustomer" method="post">
+        <label >Enter Id: </label>
+        <input type="text" name="id" required pattern="\D*">
+        <br/>
+        <br/>
+        <label>Enter sales id: </label>
+        <input type="text" name="sales_id?" required pattern="\D*">
+        <br/>
+        <br/>
+        <label>Enter size: </label>
+        <input type="text" name="size" required>
+        <br/>
+        <br/>
+        <label>Enter price: </label>
+        <input type="text" name="price" pattern="\d*">
+        <br/>
+        <br/>
+        <label>Enter name: </label>
+        <input type="text" name="name" pattern="\d*">
+        <br/>
+        <br/>
+        <label>Enter stock: </label>
+        <input type="text" name="stock" pattern="\d*">
+        <br/>
+        <br/>
+        <label>Enter type: </label>
+        <input type="text" name="type" pattern="\d*">
+        <br/>
+        <br/>
+        <label>Enter ratings: </label>
+        <input type="text" name="ratings" pattern="\d*">
+        <br/>
+        <br/>
+        <label>Enter quantity: </label>
+        <input type="text" name="quantity" pattern="\d*">
+        <br/>
+        <br/>
+        <div style="text-align:center">
+            <input type="submit" value="Add new Item">
+        </div>
+    </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"> <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class = "front">
+    <div class = "logo">Logo</div>
+    <div class = "title"><h1>T-Shirts for everyone</h1></div>
+</div>
+<div class = "crud-bar">
+    <a href="/index">
+        <button class="btn-crud">Main menu</button>
+    </a>
+    <a href="/Create">
+        <button class="btn-crud">Add Tshirt</button>
+    </a>
+    <a href="/Update">
+        <button class="btn-crud">Update</button>
+    </a>
+    <a href="/Delete">
+        <button class="btn-crud">Delete</button>
+    </a>
+</div>
+<form action="/Update_sale" method="post">
+    <label>Sale ID: </label>
+    <input type="text" name="id" th:value="${salesmodel.id}" readonly >
+    <br/>
+    <br/>
+    <label>Is completed?: </label>
+    <input type="text" name="completed" th:value="${salesmodel.completed}" required />
+    <br/>
+    <br/>
+    <label>Enter Customer's ID: </label>
+    <input type="text" name="customer_id" th:value="${salesmodel.customers_id}" required>
+    <br/>
+    <br/>
+    <label>Enter final price: </label>
+    <input type="text" name="final_price" th:value="${salesmodel.final_price}" required>
+    <br/>
+    <br/>
+    <div style="text-align:center">
+        <input type="submit" value="Save Changes">
+    </div>
+</form>
+</body>
+</html>

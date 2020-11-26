@@ -45,11 +45,12 @@ public class HomeController {
 
     List<ShoppingCart> shoppingCartList=new ArrayList<>();
     Customer customer;
-    @GetMapping("/items")
+    /*@GetMapping("/items")
     public ResponseEntity<Map<String,Object>> getAllItems(@RequestParam int page, @RequestParam int size){
 
         return new ResponseEntity<>(itemsService.fetchAllItems(page,size), HttpStatus.OK);
     }
+    */
     @GetMapping("/allitems")
     public String listItems(
             Model model,
@@ -139,7 +140,7 @@ public class HomeController {
         else return "customerLogIn";
     }
     @GetMapping("/orders")
-    public String customerOrders(Model model){
+    public String customerOrders(Model model ){
         model.addAttribute("orders",salesService.findSalesByCustomerId(customer));
         model.addAttribute("orders_info",salesService.findItemsBoughtByCustomer(salesService.findSalesByCustomerId(customer)));
         return "orders";

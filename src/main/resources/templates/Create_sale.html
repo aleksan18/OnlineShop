@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<div class = "container-fluid">
+    <div class ="section">
+        <div class ="logo"><img class="logoimg" src="download.jpg" alt="Girl in a jacket"></div>
+        <div class ="UL-menu">
+            <h1>Shirts for everybody!!!</h1>
+
+        </div>
+    </div>
+    <div class = "crud-bar">
+        <a href="/index">
+            <button class="btn-crud">Main menu</button>
+        </a>
+        <a href="/Create">
+            <button class="btn-crud">Add Tshirt</button>
+        </a>
+        <a href="/Update">
+            <button class="btn-crud">Update</button>
+        </a>
+        <a href="/Delete">
+            <button class="btn-crud">Delete</button>
+        </a>
+    </div>
+    <form action="/createCustomer" method="post">
+        <label>Enter Id: </label>
+        <input type="text" name="id" required pattern="\D*">
+        <br/>
+        <br/>
+        <label>Is completed?</label>
+        <input type="text" name="completed?" required pattern="\D*">
+        <br/>
+        <br/>
+        <label>Enter Customer's ID: </label>
+        <input type="text" name="customers_id" required>
+        <br/>
+        <br/>
+        <label>Enter final price: </label>
+        <input type="text" name="final_price" pattern="\d*">
+        <br/>
+        <br/>
+        <div style="text-align:center">
+            <input type="submit" value="Add new Sale">
+        </div>
+    </form>
+
+</div>
+
+
+</body>
+</html>

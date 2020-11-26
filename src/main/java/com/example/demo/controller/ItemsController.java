@@ -25,20 +25,24 @@ public class ItemsController {
     public Items findItemsByID(@PathVariable("id") int id) {
         return itemsService.findItemsByID(id);
     }
-    @PutMapping(path = "{id}")
+    @PutMapping("/Update_item/{id}")
     public String updateItems(@RequestBody Items items, @PathVariable("id") int id){
         itemsService.updateItems(items,id);
         return "redirect:/items/getOne/";
     }
-    @DeleteMapping(path="{id}")
+    @DeleteMapping("/Items/{id}")
     public String deleteItems(@PathVariable("id") int id){
         itemsService.deleteItems(id);
-        return "redirect:/items";
+        return "redirect:/Items";
     }
-    @PostMapping
+    @PostMapping("/Create_items/{id}")
     public String addItems(@RequestBody Items items){
         itemsService.addItems(items);
-        return "redirect:/items";
+        return "redirect:/Items";
+    }
+    @GetMapping("/Create_items")
+    public String createItems(){
+        return "/Create_items";
     }
 }
 

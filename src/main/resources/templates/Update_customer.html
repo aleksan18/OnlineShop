@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"> <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class = "front">
+    <div class = "logo">Logo</div>
+    <div class = "title"><h1>T-Shirts for everyone</h1></div>
+</div>
+<div class = "crud-bar">
+    <a href="/index">
+        <button class="btn-crud">Main menu</button>
+    </a>
+    <a href="/Create">
+        <button class="btn-crud">Add Tshirt</button>
+    </a>
+    <a href="/Update">
+        <button class="btn-crud">Update</button>
+    </a>
+    <a href="/Delete">
+        <button class="btn-crud">Delete</button>
+    </a>
+</div>
+<form action="/Update_item" method="post">
+    <label>Customer ID: </label>
+    <input type="text" name="id" th:value="${customermodel.id}" readonly >
+    <br/>
+    <br/>
+    <label>Enter first name: </label>
+    <input type="text" name="first_name" th:value="${customermodel.first_name}" required />
+    <br/>
+    <br/>
+    <label>Enter second name: </label>
+    <input type="text" name="second_name" th:value="${customermodel.second_name}" required>
+    <br/>
+    <br/>
+    <label>Enter age: </label>
+    <input type="text" name="age" th:value="${customermodel.age}" required>
+    <br/>
+    <br/>
+    <label>Enter email: </label>
+    <input type="text" name="email" th:value="${customermodel.email}" required>
+    <br/>
+    <br/>
+    <label>Enter phone: </label>
+    <input type="text" name="phone" th:value="${customermodel.phone}" required>
+    <br/>
+    <br/>
+    <label>Enter zip: </label>
+    <input type="text" name="zip" th:value="${customermodel.zip}" required>
+    <br/>
+    <br/>
+    <label>Enter country: </label>
+    <input type="text" name="country" th:value="${customermodel.country}" required>
+    <br/>
+    <br/>
+    <label>Enter address: </label>
+    <input type="text" name="address" th:value="${customermodel.address}" required>
+    <br/>
+    <br/>
+    <div style="text-align:center">
+        <input type="submit" value="Save Changes">
+    </div>
+</form>
+</body>
+</html>
